@@ -98,21 +98,33 @@ def Main_Menu():
 # Once you've played with the above try uncommenting each of the following lines one by one.
 # After uncommenting a line re-run the add-on to see your changes take place.
 
-    # Add_Dir(name='OPEN FOLDER - TEST MODE', url='test_mode', mode='open_folder', folder=True, icon=os.path.join(art_path,'icon.png'), fanart=os.path.join(art_path,'fanart.jpg'))
-    # Add_Dir(name='OPEN FOLDER - NO URL', url='', mode='open_folder', folder=True, icon=os.path.join(art_path,'icon.png'), fanart=os.path.join(art_path,'fanart.jpg'))
-    # Add_Dir(name='VIDEO EXAMPLES', url='', mode='video_examples', folder=True, icon=os.path.join(art_path,'icon.png'), fanart=os.path.join(art_path,'fanart.jpg'), description='A couple of test videos for you to look at.', content_type='video')
-    # Add_Dir(name='MUSIC EXAMPLE', url='', mode='music_examples', folder=True, icon=os.path.join(art_path,'icon.png'), fanart=os.path.join(art_path,'fanart.jpg'),content_type='song')
+    #Add_Dir(name='OPEN FOLDER - TEST MODE', url='test_mode', mode='open_folder', folder=True, icon=os.path.join(art_path,'icon.png'), fanart=os.path.join(art_path,'fanart.jpg'))
+    Add_Dir(name='OPEN FOLDER - NO URL', url='', mode='open_folder', folder=True, icon=os.path.join(art_path,'icon.png'), fanart=os.path.join(art_path,'fanart.jpg'))
+    Add_Dir(name='VIDEO EXAMPLES', url='', mode='video_examples', folder=True, icon=os.path.join(art_path,'icon.png'), fanart=os.path.join(art_path,'fanart.jpg'), description='A couple of test videos for you to look at.', content_type='video')
+    Add_Dir(name='MUSIC EXAMPLE', url='', mode='music_examples', folder=True, icon=os.path.join(art_path,'icon.png'), fanart=os.path.join(art_path,'fanart.jpg'),content_type='song')
 
 # This is our test zone, this just calls the Test_Function mode so feel free to play with the code in that function.
-    # Add_Dir(name='TESTING ZONE', url='{"test1":"this is","test2":"some example","test3":"text"}', mode='test_function', folder=False, icon=os.path.join(art_path,'icon.png'), fanart=os.path.join(art_path,'fanart.jpg'))
+    #Add_Dir(name='TESTING ZONE', url='{"test1":"this is","test2":"some example","test3":"text"}', mode='test_function', folder=False, icon=os.path.join(art_path,'icon.png'), fanart=os.path.join(art_path,'fanart.jpg'))
 #-----------------------------
-@route(mode="test_function", args=["test1","test2","test3"])
-def Test_Function(test1, test2, test3):
+    
+    Add_Dir(name='POPULATE LIST', url='', mode='test_function', folder=True, icon=os.path.join(art_path,'icon.png'), fanart=os.path.join(art_path,'fanart.jpg'))
+
+def Test_Function():
+    link ='http://www.sportshd.me/mlb/'
+    sp   ='<a href='
+    ep   ='class='
+    sep  =''
+    skp  =''
+
+    koding.Populate_List(url=link, start_point=sp, end_point=ep)
+#-----------------------------
+#@route(mode="test_function", args=["test1","test2","test3"])
+#def Test_Function(test1, test2, test3):
 # Example of sending multiple variables through the Add_Dir function
-    xbmc.log(test1,2)
-    xbmc.log(test2,2)
-    xbmc.log(test3,2)
-    dialog.ok('CHECK THE LOG','Take a look at your log, you should be able to see the 3 lines of example text we sent through.')
+   # xbmc.log(test1,2)
+   # xbmc.log(test2,2)
+   # xbmc.log(test3,2)
+   # dialog.ok('CHECK THE LOG','Take a look at your log, you should be able to see the 3 lines of example text we sent through.')
 #-----------------------------
 @route(mode="open_folder", args=["url"])
 def Test_Folder(url):
